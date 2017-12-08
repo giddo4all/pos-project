@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="5" total="6" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="2022" started-at="2017-12-08T03:32:25Z" finished-at="2017-12-08T03:32:27Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="2022" started-at="2017-12-08T03:32:25Z" finished-at="2017-12-08T03:32:27Z">
+      <class name="edu.ust.seis.pos.test.IntegrationTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:edu.ust.seis.pos.test.IntegrationTest@51efea79]" name="setup" is-config="true" duration-ms="873" started-at="2017-12-07T21:32:25Z" finished-at="2017-12-07T21:32:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testConfirmAdminUserExist()[pri:0, instance:edu.ust.seis.pos.test.IntegrationTest@51efea79]" name="testConfirmAdminUserExist" duration-ms="1123" started-at="2017-12-07T21:32:26Z" finished-at="2017-12-07T21:32:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testConfirmAdminUserExist -->
+      </class> <!-- edu.ust.seis.pos.test.IntegrationTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -12,7 +12,7 @@ import java.util.Scanner;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.gradle.DataStore;
+
 
 public class BookData {
 	
@@ -62,7 +62,7 @@ public class BookData {
 		
 //		File trlDataFile = new Database().createDBSpreadSheet();
 //		InputStream in = new FileInputStream(trlDataFile);
-		HSSFWorkbook workbook = new HSSFWorkbook(new DataStore().createDBSpreadSheet());
+		HSSFWorkbook workbook = new HSSFWorkbook();
 		
 		HSSFSheet bookDataSheet = workbook.getSheet("Book Data");
 		

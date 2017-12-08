@@ -37,8 +37,11 @@ public class BookCopyData {
 		String lastAddedNumberOfCopies = sc.nextLine();
 		bookData.add(lastAddedNumberOfCopies);
 		
-		Commons.DataStoreWrite(bookData);
+		new DataStore().dataStoreWrite(bookData, "Book Copy Data");
 
 	}
+	
+	
+	
 }
 
