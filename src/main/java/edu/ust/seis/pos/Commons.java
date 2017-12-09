@@ -17,6 +17,11 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -131,6 +136,8 @@ public class Commons {
 			"copyCount" };
 	public static final String bookSheet = "testSheet";
 
+	public static final String taxRate = "7.5";
+	
 	// ***************************************************
 
 	public enum BookHead {
@@ -228,6 +235,51 @@ public class Commons {
 		// Timestamp(System.currentTimeMillis()).toInstant().toString();
 	}
 
+	public static void resetTextField(TextField[] fieldArray) {
+
+		for (int i = 0; i < fieldArray.length; i++) {
+			fieldArray[i].setText("");
+		}
+
+	}
+	
+	public void createTable(){
+		
+		
+	}
+	
+	public void addDataToGrid(TableView<String> table, ArrayList<String> al) throws Exception {
+		try {
+
+//			LoanParam lp = new LoanParam();
+//			lp.setPrincipal(map.get("principal"));
+//			lp.setNoMonths(map.get("time"));
+//			lp.setApr(map.get("apr"));
+//			lp.setPayment(map.get("payment"));
+//			lp.setLpay(map.get("lastMonth"));
+
+			table.getItems().addAll(al);
+
+		} catch (Exception e) {
+
+			throw new Exception("Problem Occured while adding to grid");
+		}
+	}
+
+	public void clearGrid(TableView<String> table) {
+
+		table.getItems().clear();
+	}
+
+	public ObservableList<ArrayList<String>> getGridData(ArrayList<String> al) {
+
+		ObservableList<ArrayList<String>> tableData = FXCollections
+				.observableArrayList();
+		tableData.add(al);
+
+		return tableData;
+
+	}
 	// public static void DataStoreWrite(ArrayList<String> bookCopyData)
 	// throws IOException, URISyntaxException {
 	//

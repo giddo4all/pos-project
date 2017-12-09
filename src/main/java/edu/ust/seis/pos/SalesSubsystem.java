@@ -17,6 +17,7 @@ public class SalesSubsystem {
 	private String transactID;
 	private String transactIDPlus;
 	private ArrayList<String> checkOutList = new ArrayList<String>();
+	private ArrayList<String> scanList = new ArrayList<String>();
 
 	// public SalesSubsystem(){
 	// // DataStore ds = new DataStore().dataStoreWrite(data, sheetName);
@@ -25,6 +26,11 @@ public class SalesSubsystem {
 	// this.userName = SecuritySubsystem.getUserName();
 	// }
 
+	public SalesSubsystem(){
+		
+	}
+	
+	
 	public SalesSubsystem(String userID, String userName) {
 		// DataStore ds = new DataStore().dataStoreWrite(data, sheetName);
 		// transID = setTransactionID();
@@ -32,7 +38,7 @@ public class SalesSubsystem {
 		this.userName = userName;
 	}
 
-	public void scanItem(String UPC, String requestedQuantity)
+	public ArrayList<String> scanItem(String UPC, String requestedQuantity)
 			throws URISyntaxException, IOException {
 		// String id = SecuritySubsystem.getUserID();
 		DataStore ds = new DataStore();
@@ -51,14 +57,20 @@ public class SalesSubsystem {
 		mp.put(CH_DATE, epochDate);
 		mp.put(CH_TRAN_ID, tranID);
 		mp.put(CH_UPC, invArray.get(0));
+		scanList.add(invArray.get(0));
 		mp.put(CH_ITEM, invArray.get(1));
+		scanList.add(invArray.get(1));
 		mp.put(CH_UNIT_TYPE, invArray.get(2));
+		scanList.add(invArray.get(2));
 		mp.put(CH_UNIT_SOLD, requestedQuantity);
+		scanList.add(requestedQuantity);
 		mp.put(CH_PRICE, totalPrice);
+		scanList.add(totalPrice);
 		mp.put(CH_AUTH, userID);
 		mp.put(CH_RETURN, "false");
 
 		ds.dataStoreWrite(mp, CH_SHEETNAME);
+		return scanList;
 
 	}
 

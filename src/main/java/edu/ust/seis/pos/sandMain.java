@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -19,7 +20,8 @@ public class sandMain {
 	// private File workBookFile;
 	// private static FileOutputStream workBookFileOutputStream;
 	// private final String workBookName = DATA_STORE_BOOK;
-
+	static ArrayList<String> reportList;
+	List<String> reportList2;
 	public static void main(String[] args) throws IOException,
 			URISyntaxException {
 		// TODO Auto-generated method stub
@@ -73,15 +75,26 @@ public class sandMain {
 //			System.out.println(dd);
 //		}
 		
+//		reportList = new ArrayList<String>();
+//		reportList = fr();
+//		reportList.add("7676");
+//		reportList.add("766");
+//		reportList.add("76ere76");
+//		reportList.add("76yyt76");
+		
+		for (String ds : reportList ){
+		System.out.println(ds);
+//		System.out.println(Commons.timesStamp());
+		}
+	}
+
+	
+	public static List<String>fr(){
 		ArrayList<String> reportList = new ArrayList<String>();
 		reportList.add("7676");
 		reportList.add("766");
 		reportList.add("76ere76");
 		reportList.add("76yyt76");
-		
-		
-		System.out.println(reportList.lastIndexOf(reportList));
-//		System.out.println(Commons.timesStamp());
+		return reportList;
 	}
-
 }

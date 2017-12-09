@@ -113,7 +113,7 @@ public class SecuritySubsystem {
 		return "DGS" + Commons.epochTimesStamp();
 	}
 
-	public static String getUserName() {
+	public String getUserName() {
 		String name = null;
 		try {
 			name = userSession.get(1);
@@ -124,7 +124,7 @@ public class SecuritySubsystem {
 		return name;
 	}
 
-	public static String getUserID() {
+	public String getUserID() {
 
 		String id = null;
 		try {

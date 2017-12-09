@@ -4,7 +4,7 @@ import static edu.ust.seis.pos.Commons.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class PaymentSubsystem {
+public abstract class PaymentSubsystem {
 
 	
 	public enum PaymentType {
@@ -28,9 +28,7 @@ public class PaymentSubsystem {
 //	REG_HEADER 		
 
 	
-	public void makePayment(PaymentType payType, String payID){
-		
+	public abstract void makePayment(PaymentType payType, String payID);
 
-}
 
 }
