@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
-import static edu.ust.seis.pos.Commons.*;
+import static edu.ust.seis.pos.Commons.DATA_STORE_BOOK;
 
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -27,14 +27,14 @@ public class DataStore {
 
 	private File excelFile;
 	private FileOutputStream excelFileOut;
-	private String referencePath;
+//	private String referencePath;
 	String bookCopyDataHeader[] = { "Copy ID", "Book Name", "ISBN" };
 
 	public DataStore() throws URISyntaxException, IOException {
 
-		referencePath = DATA_STORE_BOOK;
-		excelFile = new File(referencePath);
-
+//		referencePath = DATA_STORE_BOOK;
+		excelFile = new File(Commons.getResourcesFile(DATA_STORE_BOOK));
+//		excelFile = new File(DATA_STORE_BOOK); // working but file in top level dir
 		if (!excelFile.exists()) {
 			try {
 				wrkbk = new HSSFWorkbook();
@@ -150,8 +150,6 @@ public class DataStore {
 
 		FileOutputStream out = new FileOutputStream(getDataStoreFile());
 		workbook.write(out);
-		System.out.println("Book Data updated successfully");
-
 		out.close();
 
 	}
@@ -237,7 +235,6 @@ public class DataStore {
 
 		FileOutputStream out = new FileOutputStream(getDataStoreFile());
 		workbook.write(out);
-		System.out.println("Datastore updated successfully");
 		out.close();
 
 	}

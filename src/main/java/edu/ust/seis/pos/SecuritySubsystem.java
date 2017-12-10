@@ -12,7 +12,8 @@ import static edu.ust.seis.pos.Commons.*;
 public class SecuritySubsystem {
 
 	private static List<String> userSession = new ArrayList<String>();
-	public static String userID;
+	private static String userID;
+	private static String title;
 
 	public enum UserRole {
 
@@ -92,7 +93,9 @@ public class SecuritySubsystem {
 		try {
 			pswd = dt.dataStoreRead(AUTH_SHEETNAME, AUTH_USERNAME, colRead,
 					userName);
-			userSession = pswd;
+			userSession.add(pswd.get(0));
+			userSession.add(userName);
+			userSession.add(pswd.get(2));
 
 		} catch (Exception e) {
 			throw new RecordNotFoundException(
@@ -101,6 +104,7 @@ public class SecuritySubsystem {
 
 		if (pswd.get(1).equals(password)) {
 			isLoginSuccess = true;
+			title = String.format("%s %10s %8s", userSession.get(1), userSession.get(0), userSession.get(2));
 		} else {
 			throw new RecordNotFoundException(
 					"The provided Username and Password combination does not exist");
@@ -134,5 +138,27 @@ public class SecuritySubsystem {
 					"User Session is null due to unsuccessful login");
 		}
 		return id;
+	}
+	
+	public List<String> getUserSession() {
+
+		return userSession;
+	}
+	
+	public static String getTitleString() {
+
+		return title; //String.format("%s %10s %8s", userSession.get(1), userSession.get(0), userSession.get(2));
+
+	}
+	
+	private static void setTitleString(String title) {
+				
+	}
+
+
+	
+	public void clearUserSession() {
+		
+		userSession = null;
 	}
 }
